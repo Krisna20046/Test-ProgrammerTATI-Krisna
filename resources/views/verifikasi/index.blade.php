@@ -139,8 +139,11 @@
         function updateTable() {
             let searchTerm = $('#searchLog').val().toLowerCase();
             let filteredRows = tableRows.filter(function() {
-                let text = $(this).text().toLowerCase();
-                return text.indexOf(searchTerm) > -1;
+                let rowText = $(this).find('td').map(function() {
+                    return $(this).text().toLowerCase();
+                }).get().join(' ');
+                
+                return rowText.includes(searchTerm);
             });
 
             let startIndex = (currentPage - 1) * entriesPerPage;

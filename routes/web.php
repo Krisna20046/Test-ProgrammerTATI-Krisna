@@ -22,6 +22,9 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    });
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
