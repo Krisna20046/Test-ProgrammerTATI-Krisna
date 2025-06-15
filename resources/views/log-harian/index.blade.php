@@ -50,7 +50,7 @@
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $log->aktivitas }}</td>
-                            <td>{{ $log->tanggal }}</td>
+                            <td>{{ date('d/m/Y', strtotime($log->tanggal)) }}</td>
                             <td>
                                 @if($log->status == 'Pending')
                                     <span class="badge badge-warning">Pending</span>
